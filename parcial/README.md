@@ -1,3 +1,6 @@
+**Projeto Parcial entregue na data 01/10/2021 e movido para esta pasta na data 23/10/2021**
+
+
 # Modelo de Apresentação da Entrega Parcial
 
 # Estrutura de Arquivos e Pastas
