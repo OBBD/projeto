@@ -1,4 +1,4 @@
-# Modelo de Apresentação da Final
+# Apresentação da Final
 
 # Estrutura de Arquivos e Pastas
 
@@ -43,74 +43,61 @@ Projeto na linguagem escolhida caso não seja usado o notebook, incluindo todos 
 
 Qualquer mídia usada no seu projeto: vídeo, imagens, animações, slides etc. Coloque os arquivos aqui (mesmo que você mantenha uma cópia no diretório do código).
 
-# Modelo para Apresentação da Entrega Prévia do Projeto
+# Apresentação da Entrega Final do Projeto
 
-# Projeto `<Título do Projeto>`
+# Projeto `Analise de queimadas no Brasil`
 
 # Equipe `Os Brabos de Banco de Dados` - `OBBD`
 * `Victor Agozzini Scholze` - `206457`
 * `Thiago Henrique Da Costa` - `206234`
 
 ## Resumo do Projeto
-> Texto resumindo o projeto.
+> Pegada de carbono e conservação do meio ambiente, são temas que ganharam extrema importância nos últimos anos. No Brasil, segundo o ClimaInfo, se incluíssemos as queimadas na floresta amazônica na pegada de carbono, a emissão praticamente dobraria. Como consequência das queimadas, ocorre também o desmatamento, o qual gera impactos ambientais, econômicos e sociais em grande parte do país, uma vez que há uma dependência ambiental deste enorme bioma. Com isso em mente, quisemos analisar mais afundo as queimadas em nosso país, criando um dataset onde podemos armazenar informações de diferentes fontes e analisá-las, a fim de compreender melhor esse problema, que há anos vem se tornando cada vez mais evidente.
 
 ## Slides da Apresentação
-> Coloque aqui o link para o PDF da apresentação final
+> [PDF de apresentação](slides/slidesprojeto.pdf)
 
 ## Modelo Conceitual
 
-> Coloque aqui a imagem do modelo conceitual final em ER ou UML, como o exemplo a seguir:
-> ![ER Taxi](images/er-taxi.png)
+> ![ER Taxi](assets/mod_conceitual.png)
 
 ## Modelos Lógicos
 
-> Coloque aqui os modelos lógicos dos bancos de dados relacionados aos modelos conceituais. Para o modelo relacional, sugere-se o formato a seguir. Para outros modelos lógicos, sugere-se aqueles apresentados em sala.
-
-> Exemplo de modelo lógico relacional
-~~~
-PESSOA(_Código_, Nome, Telefone)
-ARMÁRIO(_Código_, Tamanho, Ocupante)
-  Ocupante chave estrangeira -> PESSOA(Código)
+> Modelo relacional
 ~~~
 
-> Para o modelo de grafos de propriedades, utilize este
-> [modelo de base](https://docs.google.com/presentation/d/10RN7bDKUka_Ro2_41WyEE76Wxm4AioiJOrsh6BRY3Kk/edit?usp=sharing) para construir o seu.
-> Coloque a imagem do PNG do seu modelo lógico como ilustrado abaixo (a imagem estará na pasta `image`):
->
-> ![Modelo Lógico de Grafos](images/modelo-logico-grafos.png)
+FOCO (_datahora_, _id_, bioma, diasemchuva, precipitacao, riscofogo, latitude, longitude)
+  id chave estrangeira -> municipio(id)
+MUNICIPIO (_id_, UF, nome, latitude, longitude)
+FOCOBIOMA(_campo_,valor,porcentagem do total)
+FOCOESTADO(_campo_,valor,porcentagem do total)
 
-> Para o modelo de grafos de conhecimento, utilize a abordagem
-> (recurso, propriedade, valor) para apresentar seu grafo exemplo.
-> Coloque a imagem do PNG do seu modelo lógico como ilustrado abaixo (a imagem estará na pasta `image).
->
-> Você pode usar um grafo ilustrando as classes, como este:
-> ![Modelo Lógico de Grafos de Conhecimento](images/grafo-conhecimento-classes.png)
->
-> Além de outro com exemplo de instâncias, como este:
-> ![Modelo Lógico de Grafos](images/grafo-conhecimento-exemplo.png)
+~~~
 
-> Para modelos hierárquicos (XML e JSON), utilize um formato
-> conforme o abaixo:
-
-> ![Modelo Lógico Hierárquico](images/modelo-logico-hierarquico.png)
+> Modelo de grafos de propriedades
+>
+> ![Modelo Lógico de Grafos](assets/slidesprojeto.png)
 
 ## Dataset Publicado
-> Elencar os arquivos/bases preliminares dos datasets serão publicados.
+
 
 título do arquivo/base | link | breve descrição
 ----- | ----- | -----
-`<título do arquivo/base>` | `<link para arquivo/base>` | `<breve descrição do arquivo/base>`
-
-> Os arquivos finais do dataset publicado devem ser colocados na pasta `data`, em subpasta `processed`. Outros arquivos serão colocados em subpastas conforme seu papel (externo, interim, raw). A diferença entre externo e raw é que o raw é em formato não adaptado para uso. A pasta `raw` é opcional, pois pode ser substituída pelo link para a base original da seção anterior.
-> Coloque arquivos que não estejam disponíveis online e sejam acessados pelo notebook. Relacionais (usualmente CSV), XML, JSON e CSV ou triplas para grafos.
-> Este é o conjunto mínimo de informações que deve constar na disponibilização do Dataset, mas a equipe pode enriquecer esta seção.
+`Focos2020` | [link](data/processed/Focos2020.csv) | `Contém dados dos focos, como localização, dias sem chuva, precipitação, risco de fogo`
+`FocosBioma2020_ajustado` | [link](data/processed/FocosBioma2020_ajustado.csv) | `Biomas e o número de queimadas em cada um`
+`FocosEstado2020_ajustado` | [link](data/processed/FocosEstado2020_ajustado.csv) | `Queimadas ordenadas por estados`
+`Localidades.xlsx` | [link](data/processed/Localidades.xlsx) | `Caracteristicas dos municípios, como tipo, categoria, posição geográfica`
 
 ## Bases de Dados
 > Elencar as bases de dados fonte utilizadas no projeto.
 
 título da base | link | breve descrição
 ----- | ----- | -----
-`<título da base>` | `<link para a página da base>` | `<breve descrição da base>`
+`Localidades brasileira` | [link](https://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/localidades/Shapefile_SHP/) | `Características de cada municipio do País`
+`Temperatura média Manaus` | [link](https://www.kaggle.com/volpatto/temperature-timeseries-for-some-brazilian-cities) | `Timeseries da temperatura média mensal de Manaus`
+`Focos 2020` | [link](https://queimadas.dgi.inpe.br/queimadas/bdqueimadas#tabela-de-atributos) | `Dados de satélite, informando risco de fogo, dias sem chuva`
+`Queimadas gráfico` | [link](https://queimadas.dgi.inpe.br/queimadas/bdqueimadas#graficos) | `Quantidades de queimadas por estado, semana e bioma`
+
 
 ## Detalhamento do Projeto
 > Apresente aqui detalhes do processo de construção do dataset e análise. Nesta seção ou na seção de Perguntas podem aparecer destaques de código como indicado a seguir. Note que foi usada uma técnica de highlight de código, que envolve colocar o nome da linguagem na abertura de um trecho com `~~~`, tal como `~~~python`.
@@ -155,19 +142,19 @@ plt.show();
 > ![Comunidade no Cytoscape](images/cytoscape-comunidade.png)
 
 #### Pergunta/Análise 1
-> * Pergunta 1
+> * O estado com mais foco é o com maior risco fogo?
 >   
 >   * Explicação sucinta da análise que será feita e conjunto de queries que
 >     responde à pergunta.
 
 #### Pergunta/Análise 2
-> * Pergunta 2
+> * Na amazônia, durante meses mais quentes, ocorrem mais queimadas? 
 >   
 >   * Explicação sucinta da análise que será feita e conjunto de queries que
 >     responde à pergunta.
 
 #### Pergunta/Análise 3
-> * Pergunta 3
+> * Existe relação de risco fogo com dias sem chuvas nos biomas?
 >   
 >   * Explicação sucinta da análise que será feita e conjunto de queries que
 >     responde à pergunta.
@@ -175,18 +162,14 @@ plt.show();
 ### Perguntas/Análise Propostas mas Não Implementadas
 
 #### Pergunta/Análise 1
-> * Pergunta 1
+> * Risco fogo é maior em regiões urbanas ou rurais?
 >   
->   * Explicação em linhas gerais de como a base pode ser usada para responder esta pergunta e a sua relevância.
+>   * Com o arquivo de localidades, é possivel caracterizar uma região como urbana, rural, povoado, reserva. Assim na tabela de focos obtemos o risoc de fogo de cada municipio em um determinado periodo e as características dele, ajudando a compreender se existe relação entre o tipo de ocupação e a ocorrência de focos.
 
 #### Pergunta/Análise 2
-> * Pergunta 2
+> * Biomas com maiores risco fogo
 >   
->   * Explicação em linhas gerais de como a base pode ser usada para responder esta pergunta e a sua relevância.
+>   * Determinamos um risco fogo mínimo e filtramos para os dados com indices acima dele, vendo esta informação com o id da cidade, podemos contar qual bioma é o mais recorrente. Isso ajuda a entender se um bioma mais úmido está na frente de um mais seco, indicando que há algo erado com aquele local, o qual deve estar ocorrendo muita intterferencia humana ou uma mudança acentuada do clima.
 
-#### Pergunta/Análise 3
-> * Pergunta 3
->   
->   * Explicação em linhas gerais de como a base pode ser usada para responder esta pergunta e a sua relevância.
 
 > Coloque um link para o arquivo do notebook que executa o conjunto de queries. Ele estará dentro da pasta `notebook`. Se por alguma razão o código não for executável no Jupyter, coloque na pasta `src`. Se as queries forem executadas atraves de uma interface de um SGBD não executável no Jupyter, como o Cypher, apresente na forma de markdown.
